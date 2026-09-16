@@ -38,6 +38,28 @@ export const viewport: Viewport = {
   colorScheme: "dark",
 };
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.name,
+  url: site.url,
+  email: `mailto:${site.email}`,
+  jobTitle: site.employer.title,
+  worksFor: {
+    "@type": "Organization",
+    name: site.employer.company,
+    url: site.employer.url,
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: site.locality,
+    addressRegion: site.region,
+    addressCountry: "US",
+  },
+  sameAs: [site.links.linkedin, site.links.github],
+  knowsAbout: ["Java", "TypeScript", "React", "Next.js", "PostgreSQL", "Software testing"],
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
@@ -51,6 +73,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to main content
         </a>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         <SiteHeader />
         <main id="main" className="flex-1">
           {children}

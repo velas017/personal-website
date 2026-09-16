@@ -5,17 +5,26 @@
 export const site = {
   name: "Edar Velasquez",
   handle: "edar",
-  role: "Software Engineer & Builder",
+  role: "Software Engineer",
+  /** Current position, shown under the role line and in structured data. */
+  employer: {
+    title: "Quality Assurance Specialist",
+    company: "Bank of America",
+    url: "https://www.bankofamerica.com",
+    since: "2021",
+  },
   /** Rotating descriptors typed out in the hero. */
   roleWords: [
     "Software Engineer",
-    "Full-stack builder",
-    "Next.js & TypeScript",
-    "AI-assisted workflows",
+    "Java · React · TypeScript",
+    "Full-stack with Next.js & Postgres",
+    "Tests that fail the build on purpose",
   ],
-  location: "United States",
+  location: "Charlotte, NC",
+  locality: "Charlotte",
+  region: "North Carolina",
   tagline:
-    "I build web apps and client sites end to end, from design to deploy.",
+    "Software engineer with 5+ years building and validating enterprise applications, and shipping full-stack products end to end.",
   availability: {
     open: true,
     label: "open to new projects",

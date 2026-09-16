@@ -51,10 +51,19 @@ export function Hero() {
               <span className="sr-only">{site.role}</span>
             </p>
           </BlurFade>
+          <BlurFade delay={0.3}>
+            <p className="mt-2 pl-6 text-sm text-muted-foreground">
+              {site.employer.title} @{" "}
+              <span className="text-foreground">{site.employer.company}</span>
+              <span className="text-faint"> · {site.location}</span>
+            </p>
+          </BlurFade>
           <BlurFade delay={0.35}>
             <p className="mt-6 max-w-lg text-[15px] leading-relaxed text-muted-foreground">
-              {site.tagline} Lately that has meant booking flows, local-SEO
-              sites for real businesses, and a scheduling product of my own.
+              Five years turning enterprise requirements into reliable, well-tested
+              software in Java, React and TypeScript. After hours I build full-stack
+              products end to end: a multi-tenant scheduling platform, booking
+              flows, and local-SEO sites for real businesses.
             </p>
           </BlurFade>
           <BlurFade delay={0.45}>
@@ -74,7 +83,7 @@ export function Hero() {
               {`$ whoami`}
             </TypingAnimation>
             <AnimatedSpan className="text-muted-foreground">
-              {`${site.handle} — ${site.role.toLowerCase()}`}
+              {`${site.handle} — ${site.role.toLowerCase()} · ${site.employer.company.toLowerCase()} · ${site.location.toLowerCase()}`}
             </AnimatedSpan>
             <TypingAnimation duration={45} className="text-foreground">
               {`$ cat availability.txt`}
@@ -94,7 +103,7 @@ export function Hero() {
               {`$ cat stack.txt`}
             </TypingAnimation>
             <AnimatedSpan className="text-muted-foreground">
-              {`next.js · typescript · tailwind · postgres · prisma · vercel`}
+              {`java · typescript · react · next.js · postgres · prisma · vercel`}
             </AnimatedSpan>
             <AnimatedSpan className="text-foreground">
               <span>

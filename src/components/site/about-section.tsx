@@ -3,11 +3,12 @@ import { site } from "@/content/site";
 import { Container, Eyebrow } from "./primitives";
 
 const skills: Array<{ group: string; items: string[] }> = [
-  { group: "frontend", items: ["Next.js", "React", "TypeScript", "Tailwind CSS", "CSS Modules"] },
-  { group: "backend", items: ["Node", "PostgreSQL", "Prisma", "Supabase", "NextAuth", "Zod"] },
+  { group: "languages", items: ["Java", "TypeScript", "JavaScript", "SQL"] },
+  { group: "frontend", items: ["React", "Next.js", "Tailwind CSS", "CSS Modules", "accessibility (WCAG 2.2)"] },
+  { group: "backend", items: ["Node", "REST APIs", "PostgreSQL", "Prisma", "Supabase", "NextAuth", "Zod"] },
+  { group: "testing & qa", items: ["test strategy", "Vitest", "Playwright", "axe-core", "Lighthouse", "OOP & clean architecture"] },
   { group: "payments & infra", items: ["Square", "Stripe Connect", "AWS SES", "Upstash Redis", "Vercel", "Sentry"] },
-  { group: "quality", items: ["Vitest", "Playwright", "axe-core", "Lighthouse", "WCAG 2.2"] },
-  { group: "ai-assisted", items: ["Claude Code", "prompt & context engineering", "spec-driven builds"] },
+  { group: "tooling", items: ["Git", "Bitbucket", "GitHub Actions", "Claude Code", "spec-driven builds"] },
 ];
 
 const initials = site.name
@@ -27,25 +28,30 @@ export function AboutSection() {
             </h2>
           </BlurFade>
           <BlurFade inView delay={0.1}>
-            {/* TODO: this bio is a draft written from your repos. Edit freely. */}
+            {/* Bio draft written from your LinkedIn summary and repos. Edit freely. */}
             <div className="mt-6 space-y-4 text-[15px] leading-relaxed text-muted-foreground">
               <p>
-                I&apos;m {site.name}, a software engineer based in {site.location}. I
-                build web products end to end: the design, the data model, the
-                payments, the tests, and the deploy.
+                I&apos;m {site.name}, a software engineer in {site.location}. For
+                the last five years I&apos;ve been building and validating enterprise
+                applications at {site.employer.company}, mostly in Java, React and
+                TypeScript. My strength is turning complex requirements into
+                reliable, well-tested software with a real focus on clean
+                architecture and maintainability.
               </p>
               <p>
-                Most of my work starts with a real business that needs something
-                to exist. A skincare studio that needed bookings out of their DMs.
-                An auto shop that needed to show up in local search. Small service
-                businesses that were overpaying for scheduling software, which
-                turned into a full booking platform of my own.
+                What energizes me is building things end to end. I designed and
+                shipped AnotherSchedulr, a multi-tenant SaaS scheduling platform on
+                Next.js, TypeScript, PostgreSQL and Prisma: 100+ API endpoints,
+                authentication, payment processing and tenant data isolation, from
+                schema design through production deployment. The client sites here
+                came from the same habit of not leaving a problem alone.
               </p>
               <p>
-                I care about the parts people don&apos;t see: typed content so nothing
-                drifts, accessibility checks that fail the build, security headers
-                with a reason next to each one. And I lean hard on AI-assisted
-                workflows to move faster without skipping those parts.
+                I care about the parts people don&apos;t see: typed content so
+                nothing drifts, accessibility checks that fail the build, security
+                headers with a reason next to each one. I&apos;m always glad to talk
+                with teams building ambitious products and solving hard engineering
+                problems.
               </p>
             </div>
           </BlurFade>
