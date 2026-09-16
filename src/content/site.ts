@@ -20,11 +20,10 @@ export const site = {
     open: true,
     label: "open to new projects",
   },
-  email: "velasquezedar17@gmail.com",
+  email: "velasquezedarsw@gmail.com",
   links: {
     github: "https://github.com/velas017",
-    // TODO: confirm your LinkedIn URL
-    linkedin: "https://www.linkedin.com/in/edar-velasquez",
+    linkedin: "https://www.linkedin.com/in/velasquezedar017/",
   },
   /** Used for canonical URLs, sitemap and Open Graph. Override with NEXT_PUBLIC_SITE_URL. */
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://velasanothercoder.com",
