@@ -83,7 +83,7 @@ export function Hero() {
               {`$ whoami`}
             </TypingAnimation>
             <AnimatedSpan className="text-muted-foreground">
-              {`${site.handle} — ${site.role.toLowerCase()} · ${site.employer.company.toLowerCase()} · ${site.location.toLowerCase()}`}
+              {`${site.handle} — ${site.role.toLowerCase()} · qa specialist @ ${site.employer.company.toLowerCase()} · ${site.location.toLowerCase()}`}
             </AnimatedSpan>
             <TypingAnimation duration={45} className="text-foreground">
               {`$ cat availability.txt`}
