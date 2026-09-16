@@ -39,3 +39,7 @@ src/components/ui/       vendored Magic UI components (blur-fade, terminal, typi
 src/content/             site config and project data
 src/lib/                 project helpers, cn()
 ```
+
+## Deploys
+
+Vercel is connected to the GitHub repo: pushes to `main` deploy production at https://velasanothercoder.com, pushes to `develop` (or any PR) get a preview URL.
