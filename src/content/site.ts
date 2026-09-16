@@ -27,7 +27,7 @@ export const site = {
     linkedin: "https://www.linkedin.com/in/edar-velasquez",
   },
   /** Used for canonical URLs, sitemap and Open Graph. Override with NEXT_PUBLIC_SITE_URL. */
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://edarvelasquez.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://velasanothercoder.com",
   /** Path shown in the fake shell prompt. */
   prompt: "visitor@edar ~ $",
 } as const;
