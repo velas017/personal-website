@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Edar Velasquez — portfolio
 
-## Getting Started
+Personal portfolio site: projects, availability, and a point of contact.
+Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · Magic UI components · deployed on Vercel.
 
-First, run the development server:
+## Run
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # production build (all routes prerendered)
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Edit content (no component changes needed)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| What | Where |
+| --- | --- |
+| Name, role, rotating role words, availability, email, links, site URL | `src/content/site.ts` |
+| Projects (cards + `/projects/[slug]` case studies) | `src/content/projects.ts` |
+| About bio and skills list | `src/components/site/about-section.tsx` |
+| Headshot | drop `public/headshot.jpg`, then swap the initials tile in `about-section.tsx` for `next/image` |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Add a project by appending an object to the `projects` array. The home grid,
+its case-study page, the sitemap and the hero's `ls ~/projects` output all update.
 
-## Learn More
+## Before launch
 
-To learn more about Next.js, take a look at the following resources:
+- Confirm the LinkedIn URL in `src/content/site.ts`.
+- Set `NEXT_PUBLIC_SITE_URL` in Vercel to the real domain (used for canonical URLs, sitemap, Open Graph).
+- Replace the draft bio in `about-section.tsx` with your own words.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Layout
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+src/app/                 routes: /, /projects/[slug], not-found, opengraph-image, sitemap, robots
+src/components/site/     header, footer, hero, projects, about, contact, primitives
+src/components/ui/       vendored Magic UI components (blur-fade, terminal, typing-animation, dot-pattern)
+src/content/             site config and project data
+src/lib/                 project helpers, cn()
+```

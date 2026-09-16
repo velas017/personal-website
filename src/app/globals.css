@@ -1,26 +1,188 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
+@custom-variant dark (&:is(.dark *));
+
+/* ------------------------------------------------------------------
+   Palette: "amber phosphor" terminal. Deep blue-black ground, warm
+   amber accent, cool gray text. Single dark theme by design.
+   ------------------------------------------------------------------ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #0a0d13;
+  --bg-elevated: #10151d;
+  --bg-screen: #0d1219;
+  --line: #1e2734;
+  --line-strong: #2b3646;
+  --fg: #e7eaf0;
+  --fg-muted: #8a95a8;
+  --fg-faint: #5b6678;
+  --amber: #f5b342;
+  --amber-dim: #c98d23;
+  --amber-subtle: #2a2110;
+  --amber-glow: #ffd27a;
+  --ok: #4ade80;
+
+  /* shadcn tokens mapped onto the palette */
+  --background: var(--bg);
+  --foreground: var(--fg);
+  --card: var(--bg-elevated);
+  --card-foreground: var(--fg);
+  --popover: var(--bg-elevated);
+  --popover-foreground: var(--fg);
+  --primary: var(--amber);
+  --primary-foreground: #14100a;
+  --secondary: var(--bg-elevated);
+  --secondary-foreground: var(--fg);
+  --muted: var(--bg-elevated);
+  --muted-foreground: var(--fg-muted);
+  --accent: var(--amber-subtle);
+  --accent-foreground: var(--amber);
+  --destructive: #f87171;
+  --border: var(--line);
+  --input: var(--line-strong);
+  --ring: var(--amber);
+  --chart-1: var(--amber);
+  --chart-2: var(--amber-dim);
+  --chart-3: var(--fg-muted);
+  --chart-4: var(--fg-faint);
+  --chart-5: var(--line-strong);
+  --radius: 0.5rem;
+  --sidebar: var(--bg-elevated);
+  --sidebar-foreground: var(--fg);
+  --sidebar-primary: var(--amber);
+  --sidebar-primary-foreground: #14100a;
+  --sidebar-accent: var(--amber-subtle);
+  --sidebar-accent-foreground: var(--amber);
+  --sidebar-border: var(--line);
+  --sidebar-ring: var(--amber);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* palette-native names for site components */
+  --color-elevated: var(--bg-elevated);
+  --color-screen: var(--bg-screen);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-faint: var(--fg-faint);
+  --color-amber: var(--amber);
+  --color-amber-dim: var(--amber-dim);
+  --color-amber-subtle: var(--amber-subtle);
+  --color-amber-glow: var(--amber-glow);
+  --color-ok: var(--ok);
+
+  --font-sans: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-heading: var(--font-mono);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  --animate-blink-cursor: blink-cursor 1.2s step-end infinite;
+  --animate-shimmer-slide: shimmer-slide var(--speed) ease-in-out infinite alternate;
+  --animate-spin-around: spin-around calc(var(--speed) * 2) infinite linear;
+  --animate-pulse-dot: pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @keyframes blink-cursor {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+  @keyframes shimmer-slide {
+    to { transform: translate(calc(100cqw - 100%), 0); }
+  }
+  @keyframes spin-around {
+    0% { transform: translateZ(0) rotate(0); }
+    15%, 35% { transform: translateZ(0) rotate(90deg); }
+    65%, 85% { transform: translateZ(0) rotate(270deg); }
+    100% { transform: translateZ(0) rotate(360deg); }
+  }
+  @keyframes pulse-dot {
+    0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--ok) 60%, transparent); }
+    70% { box-shadow: 0 0 0 6px transparent; }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-background text-foreground font-mono antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--amber);
+    color: #14100a;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  /* faint CRT scanlines over the page */
+  .scanlines::before {
+    content: "";
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 3px,
+      rgba(0, 0, 0, 0.08) 3px,
+      rgba(0, 0, 0, 0.08) 4px
+    );
+    mix-blend-mode: multiply;
+  }
+  .text-glow {
+    text-shadow: 0 0 24px color-mix(in oklab, var(--amber) 35%, transparent);
+  }
 }
