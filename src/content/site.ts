@@ -32,7 +32,7 @@ export const site = {
   email: "velasquezedarsw@gmail.com",
   links: {
     github: "https://github.com/velas017",
-    linkedin: "https://www.linkedin.com/in/velasquezedar017/",
+    linkedin: "https://www.linkedin.com/in/velasquezedar/",
   },
   /** Used for canonical URLs, sitemap and Open Graph. Override with NEXT_PUBLIC_SITE_URL. */
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://velasanothercoder.com",
