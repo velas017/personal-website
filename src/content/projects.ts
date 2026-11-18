@@ -1,6 +1,8 @@
 /**
  * Project catalogue. Add a project by appending an object here;
  * the home grid and /projects/[slug] pages are generated from it.
+ * A project with status "research" has nothing to open yet, so it is
+ * listed as one line under the grid instead of as a card.
  */
 export type ProjectCategory = "websites" | "apps" | "automation" | "experiments";
 
@@ -10,15 +12,23 @@ export interface Project {
   slug: string;
   name: string;
   category: ProjectCategory;
-  /** One line, shown on the card. Keep under ~20 words. */
+  /** What it is, shown under the name on the home page: "Client website", "My own product". */
+  kind: string;
+  /** One line in plain words for the home page card. Write it for someone who does not code. */
+  plain: string;
+  /** Screenshot for the home page card: a 1280×720 file in public/projects/, with a description for people who cannot see it. */
+  image?: {
+    src: string;
+    alt: string;
+  };
+  /** One technical line, shown at the top of the write-up page. Keep under ~20 words. */
   description: string;
-  /** Short tag list for the card (3-4 max). */
+  /** Short tag list for the write-up page (3-4 max). */
   tags: readonly string[];
   /** Full stack list for the case-study page. */
   stack: readonly string[];
   status: ProjectStatus;
   year: string;
-  featured?: boolean;
   links?: {
     live?: string;
     repo?: string;
@@ -29,13 +39,6 @@ export interface Project {
   solution: string;
   highlights: readonly string[];
 }
-
-export const categoryMeta: Record<ProjectCategory, { label: string; blurb: string }> = {
-  apps: { label: "apps", blurb: "full products with accounts, data and billing" },
-  websites: { label: "websites", blurb: "marketing and lead-gen sites for real businesses" },
-  automation: { label: "automation", blurb: "scripts, bots and pipelines" },
-  experiments: { label: "experiments", blurb: "research, prototypes and things I wanted to try" },
-};
 
 export const categoryOrder: readonly ProjectCategory[] = [
   "apps",
@@ -49,6 +52,13 @@ export const projects: readonly Project[] = [
     slug: "anotherschedulr",
     name: "AnotherSchedulr",
     category: "apps",
+    kind: "My own product",
+    plain:
+      "Online booking for one-person service businesses: a branded booking page, deposits, no-show protection and reminders.",
+    image: {
+      src: "/projects/anotherschedulr.jpg",
+      alt: "AnotherSchedulr home page with the headline “The booking page your clients will love” and a Join the waitlist button",
+    },
     description:
       "Multi-tenant booking platform for service businesses: white-labeled booking pages, deposits, no-show protection and intake forms.",
     tags: ["Next.js", "Prisma", "PostgreSQL", "Square"],
@@ -71,7 +81,9 @@ export const projects: readonly Project[] = [
     ],
     status: "beta",
     year: "2025–2026",
-    featured: true,
+    links: {
+      live: "https://anotherschedulr.com",
+    },
     summary:
       "A full booking product for solo operators and small service businesses. Each tenant gets a branded booking page on their own subdomain, a calendar with real availability rules, deposits or saved-card no-show protection, intake forms, reminders and reports. One flat plan instead of per-seat pricing.",
     problem:
@@ -91,6 +103,13 @@ export const projects: readonly Project[] = [
     slug: "streamline-performance-garage",
     name: "Streamline Performance Garage",
     category: "websites",
+    kind: "Client website",
+    plain:
+      "Website for a Subaru, Nissan and Honda repair shop in Concord, NC, built to show up in local searches and turn visits into calls.",
+    image: {
+      src: "/projects/streamline-performance-garage.jpg",
+      alt: "Streamline Performance Garage home page: a blue race car under the headline “Japanese automotive specialists”, with Book now and Call buttons",
+    },
     description:
       "Static marketing and lead-gen site for a Subaru, Nissan and Honda specialist shop in Concord, NC.",
     tags: ["Next.js", "Tailwind", "JSON-LD", "Vitest"],
@@ -131,6 +150,13 @@ export const projects: readonly Project[] = [
     slug: "estheticly-skincare",
     name: "EstheticLY Skincare",
     category: "websites",
+    kind: "Client website",
+    plain:
+      "Website for a Charlotte esthetician. Clients read about treatments and aftercare, then book online.",
+    image: {
+      src: "/projects/estheticly-skincare.jpg",
+      alt: "EstheticLY Skincare home page with the headline “Start your skincare journey” beside a photo of the esthetician at work",
+    },
     description:
       "Multi-page site for a Charlotte, NC esthetician with hardened Acuity booking embed and local-business structured data.",
     tags: ["Next.js", "CSS Modules", "Acuity", "WCAG 2.2"],
@@ -168,6 +194,8 @@ export const projects: readonly Project[] = [
     slug: "special-delivery-presents",
     name: "Special Delivery Presents",
     category: "experiments",
+    kind: "Research plan",
+    plain: "Research and a build plan for a nightlife promoter’s event site.",
     description:
       "Research and architecture plan for a nightlife promoter site: event calendar, venues, ticket links and VIP capture.",
     tags: ["Research", "Next.js", "Sanity", "SEO"],

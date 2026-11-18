@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { site } from "@/content/site";
-import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
 
 const jetbrainsMono = JetBrains_Mono({
@@ -64,7 +63,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${jetbrainsMono.variable} dark h-full scroll-pt-20 antialiased`}
+      className={`${jetbrainsMono.variable} dark h-full antialiased`}
     >
       <body className="scanlines flex min-h-full flex-col">
         <a
@@ -77,7 +76,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
-        <SiteHeader />
         <main id="main" className="flex-1">
           {children}
         </main>

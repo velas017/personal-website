@@ -1,14 +1,14 @@
-import { Hero } from "@/components/site/hero";
+import { Intro } from "@/components/site/intro";
 import { ProjectsSection } from "@/components/site/projects-section";
-import { AboutSection } from "@/components/site/about-section";
+import { StackLine } from "@/components/site/stack-line";
 import { ContactSection } from "@/components/site/contact-section";
 
 export default function HomePage() {
   return (
     <>
-      <Hero />
+      <Intro />
       <ProjectsSection />
-      <AboutSection />
+      <StackLine />
       <ContactSection />
     </>
   );

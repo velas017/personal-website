@@ -26,6 +26,16 @@ export function getProjectsByCategory(): Array<{
     .filter((g) => g.items.length > 0);
 }
 
+/** Projects with something to open: shown as cards on the home page. */
+export function getShowcaseProjects(): Project[] {
+  return projects.filter((p) => p.status !== "research");
+}
+
+/** Research-only projects: shown as one line under the cards. */
+export function getResearchProjects(): Project[] {
+  return projects.filter((p) => p.status === "research");
+}
+
 /** Previous / next neighbours for the case-study footer nav. */
 export function getAdjacentProjects(slug: string): {
   prev?: Project;

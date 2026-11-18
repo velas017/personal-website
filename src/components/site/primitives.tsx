@@ -2,6 +2,10 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { site } from "@/content/site";
 
+/** Visible keyboard focus for links and buttons. */
+export const focusRing =
+  "rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber";
+
 /** `// LABEL` style section eyebrow used across the site. */
 export function Eyebrow({
   children,
@@ -72,7 +76,10 @@ export function ContactLinks({ className }: { className?: string }) {
             href={item.href}
             target={item.external ? "_blank" : undefined}
             rel={item.external ? "noopener noreferrer" : undefined}
-            className="text-foreground underline-offset-4 transition-colors hover:text-amber hover:underline"
+            className={cn(
+              "inline-flex min-h-11 items-center px-1 text-foreground underline-offset-4 transition-colors hover:text-amber hover:underline",
+              focusRing,
+            )}
           >
             {item.label}
           </a>

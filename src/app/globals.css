@@ -16,7 +16,7 @@
   --line-strong: #2b3646;
   --fg: #e7eaf0;
   --fg-muted: #8a95a8;
-  --fg-faint: #5b6678;
+  --fg-faint: #7a8598; /* 5.2:1 on --bg, 4.9:1 on --bg-elevated */
   --amber: #f5b342;
   --amber-dim: #c98d23;
   --amber-subtle: #2a2110;

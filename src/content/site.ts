@@ -4,7 +4,6 @@
  */
 export const site = {
   name: "Edar Velasquez",
-  handle: "edar",
   role: "Software Engineer",
   /** Current position, shown under the role line and in structured data. */
   employer: {
@@ -13,13 +12,20 @@ export const site = {
     url: "https://www.bankofamerica.com",
     since: "2021",
   },
-  /** Rotating descriptors typed out in the hero. */
-  roleWords: [
-    "Software Engineer",
-    "Java · React · TypeScript",
-    "Full-stack with Next.js & Postgres",
-    "Tests that fail the build on purpose",
+  /** One or two sentences under your name on the home page. Plain words, no jargon. */
+  intro:
+    "I build websites and booking tools for local businesses. By day I build and test enterprise software at Bank of America.",
+  /** One-line entries under the intro: what you do, where (shown brighter), and an optional note. */
+  now: [
+    { what: "Quality Assurance Specialist", where: "Bank of America" },
+    { what: "Building", where: "AnotherSchedulr", note: "in beta" },
   ],
+  previously: [
+    { what: "Apprentice", where: "Bank of America", note: "2021–2022" },
+    { what: "Coding fellow", where: "Road to Hire", note: "2020–2021" },
+  ],
+  /** The single "Works with" line under the projects. */
+  stack: ["java", "typescript", "react", "next.js", "postgres", "prisma", "vercel"],
   location: "Charlotte, NC",
   locality: "Charlotte",
   region: "North Carolina",
