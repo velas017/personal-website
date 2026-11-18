@@ -57,7 +57,7 @@ export const projects: readonly Project[] = [
       "Online booking for one-person service businesses: a branded booking page, deposits, no-show protection and reminders.",
     image: {
       src: "/projects/anotherschedulr.jpg",
-      alt: "AnotherSchedulr home page with the headline “The booking page your clients will love” and a Join the waitlist button",
+      alt: "AnotherSchedulr sample dashboard: the next appointment, today’s schedule, visit counts for the week and month, and shortcuts",
     },
     description:
       "Multi-tenant booking platform for service businesses: white-labeled booking pages, deposits, no-show protection and intake forms.",
@@ -125,10 +125,10 @@ export const projects: readonly Project[] = [
       "Instagram Graph API",
       "Vercel",
     ],
-    status: "pre-launch",
+    status: "live",
     year: "2026",
     links: {
-      live: "https://streamline-performance-garage.vercel.app",
+      live: "https://streamlineperformancellc.com",
       repo: "https://github.com/velas017/streamlinePerformanceGarage",
     },
     summary:
